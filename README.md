@@ -1,6 +1,5 @@
 # Scuti 
-A production ready filtering library 
-
+A production ready filtering and prediction library
 
 ## How to use 
 ```python
