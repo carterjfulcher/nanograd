@@ -13,7 +13,7 @@ the posterior = (prior x likelihood) / evidence
 import pandas as pd 
 import numpy as np
 
-from scuti.utils.Distribution import Distribution 
+from scuti.utils.distribution import Distribution 
 
 class BayesClassifier(): 
 	def __init__(self): 

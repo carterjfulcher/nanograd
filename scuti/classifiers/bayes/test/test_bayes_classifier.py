@@ -1,6 +1,6 @@
 import numpy as np 
 
-from scuti.utils.Distribution import Distribution
+from scuti.utils.distribution import Distribution
 
 
 def test_classifier():
