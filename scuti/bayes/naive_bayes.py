@@ -18,6 +18,10 @@ from scuti.utils.Distribution import Distribution
 class BayesClassifier(): 
 	def __init__(self): 
 		self._normalizing_constants = dict() 
+		
+		#matrices of shape (n_classes, n_features)
+		self._variances = [] 
+		self._means = [] 
 
 	def _compute_noramlizing_constants(self, labels: np.array):
 		for _class, count in list(zip(*np.unique(labels, return_counts=True))): 
@@ -27,7 +31,20 @@ class BayesClassifier():
 		pass
 
 	def fit(self, features, labels): 
+		#compute the mean and variances of each feature
 		self._compute_noramlizing_constants(labels)
-		std, mean = Distribution.normal_distribution(pd.DataFrame(features, index=labels))
+		for _class, _ in self._normalizing_constants.items():
+			class_filtered = [item for index, item in enumerate(features) if labels[index] == _class]
+			class_means, class_variance = [], [] 
+			
+			for feature_index in range(features.shape[1]):
+				feature_set = np.array([i[feature_index] for i in class_filtered])
+				class_means.append(feature_set.mean())
+				class_variance.append(sum([(x - np.mean(feature_set))**2 for x in feature_set])/(len(feature_set)-1))
 
+			self._means.append(class_means) 
+			self._variances.append(class_variance)
 
+		self._variances = np.array(self._variances)
+		self._means = np.array(self._means)
+			

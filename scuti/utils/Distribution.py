@@ -8,4 +8,4 @@ class Distribution:
             means.append(df[column].mean())
             stds.append(df[column].std())
 
-        return (sum(means) / len(means)), (sum(stds) / len(stds)) #σ = standard deviation, μ = mean
+        return (sum(means) / len(means)), (sum(stds) / len(stds) ** 2) #σ = standard deviation, μ = mean
