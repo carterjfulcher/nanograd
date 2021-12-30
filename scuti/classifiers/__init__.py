@@ -1,0 +1,1 @@
+from .bayes.naive_bayes import BayesClassifier
