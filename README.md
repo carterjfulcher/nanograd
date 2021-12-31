@@ -1,5 +1,7 @@
 # Scuti
 
+[![Unit Test](https://github.com/carterjfulcher/scuti/actions/workflows/test.yml/badge.svg)](https://github.com/carterjfulcher/scuti/actions/workflows/test.yml)
+
 A filtering and prediction library
 
 ## How to use
