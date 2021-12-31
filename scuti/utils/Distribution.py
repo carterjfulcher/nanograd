@@ -1,11 +1,12 @@
-import pandas as pd 
+import numpy as np 
 
 class Distribution: 
     @classmethod 
-    def normal_distribution(self, df: pd.DataFrame) -> tuple: 
+    def normal_distribution(self, x: np.ndarray) -> tuple: 
         means, stds = [], []
-        for column in df.columns:
-            means.append(df[column].mean())
-            stds.append(df[column].std())
+        for feature_set_index in range(x.shape[1]):
+            feature_set = [i[feature_set_index] for i in x]
+            means.append(np.mean(feature_set))
+            stds.append(np.std(feature_set))
 
-        return (sum(means) / len(means)), (sum(stds) / len(stds) ** 2) #σ = standard deviation, μ = mean
+        return (sum(means) / len(means)), (sum(stds) / len(stds)) #σ = standard deviation, μ = mean
