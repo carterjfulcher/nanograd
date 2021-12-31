@@ -21,5 +21,9 @@ def test_classifier():
 
     assert(test_y in [0, 1])
 
+
+    return test_y
 if __name__ == "__main__":
-    test_classifier()
+    prediction = test_classifier()
+
+    print(f"The model has predicted a result of: {prediction}")
