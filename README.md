@@ -1,4 +1,6 @@
-# Scuti
+# Nanograd
+
+Inspired by [geohot/tinygrad](https://github.com/geohot/tinygrad), with filtering/classifiers on top 
 
 [![Unit Test](https://github.com/carterjfulcher/scuti/actions/workflows/test.yml/badge.svg)](https://github.com/carterjfulcher/scuti/actions/workflows/test.yml)
 
